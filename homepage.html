@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="index.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- LibraryForClearCookies -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+</head>
+
+<body class="bg-gray-50 h-full ">
+    <!-- Header -->
+    <header class="py-6 px-4 flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div>
+            <h1 class="text-2xl font-bold">
+                <a href="homepage.html" class="text-black no-underline">Exclusive</a>
+            </h1>
+        </div>
+        <!-- Search and Icons -->
+        <div class="flex items-center gap-4">
+            <!-- Search -->
+            <div class="flex items-center bg-gray-100 rounded px-4 py-1 w-80">
+                <input type="text" placeholder="What are you looking for?"
+                    class="bg-transparent text-sm text-gray-600 focus:outline-none w-full" />
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-4.35-4.35m1.6-4.15a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
+                </svg>
+            </div>
+            <!-- Icons -->
+            <div class="flex items-center gap-6">
+                <a href="#" id="basket-shopping"><i class="fa-solid fa-basket-shopping text-gray-600 text-xl"></i></a>
+                <!-- User Icon Dropdown -->
+                <div class="relative cursor-pointer">
+                    <i class="fa-solid fa-user text-gray-600 text-xl cursor-pointer" id="user-icon"></i>
+                    <!-- Dropdown Menu -->
+                    <div id="dropdown-menu"
+                        class=" absolute w-[225px] bg-white shadow-md rounded mt-2 right-0 hidden cursor-pointer">
+                        <a href="#" id="manageMyAccount" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
+                            <i class="fa-solid fa-user cursor-pointer text-gray-600 "></i>
+                            Manage My Account
+                        </a>
+                        <a href="#" id="logOut" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
+                            <i class="fa-solid fa-right-from-bracket text-gray-600 cursor-pointer"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="relative">
+        <div class="absolute inset-x-0 top-1/2 transform -translate-y-1/2 border-t border-gray-300 opacity-50"></div>
+    </div>
+    <section class="max-w-full mx-auto ml-[90px] py-8">
+        <div class="flex items-center gap-4 mb-6">
+            <div class="w-[20px] h-[40px] bg-[#DB4444] rounded-sm opacity-100"></div>
+            <h2 class="text-[16px] font-semibold font-poppins text-[#DB4444] leading-[20px] opacity-100"
+                style="font-family: 'Poppins', sans-serif;">Categories</h2>
+        </div>
+
+        <h1 class="text-2xl font-bold mb-8 font-sans" style="font-family: 'Inter', sans-serif;">Browse By Category</h1>
+
+        <div id="categories" class="flex gap-6">
+            <div class="w-[170px] h-[145px] border-t-[1px] border-l-[1px] border-r-[1px] border-b-[1px] border-gray-300 rounded-tl-[4px] flex flex-col justify-center items-center gap-2 opacity-100"
+                id="tech-category">
+                <div class="text-6xl text-gray-500">
+                    <i class="fa-solid fa-mobile"></i>
+                </div>
+                <div class="text-sm font-semibold text-gray-700">Tech</div>
+            </div>
+            <div class="w-[170px] h-[145px] border-t-[1px] border-l-[1px] border-r-[1px] border-b-[1px] border-gray-300 rounded-tl-[4px] flex flex-col justify-center items-center gap-2 opacity-100"
+                id="fashion-category">
+                <div class="text-6xl text-gray-500">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <div class="text-sm font-semibold text-gray-700">Fashion</div>
+            </div>
+            <div class="w-[170px] h-[145px] border-t-[1px] border-l-[1px] border-r-[1px] border-b-[1px] border-gray-300 rounded-tl-[4px] flex flex-col justify-center items-center gap-2 opacity-100"
+                id="furniture-category">
+                <div class="text-6xl text-gray-500">
+                    <i class="fa-solid fa-chair"></i>
+                </div>
+                <div class="text-sm font-semibold text-gray-700">Furniture</div>
+            </div>
+    </section>
+
+    <div class="max-w-full h-[108px] object-scale-down ml-[90px] gap-[60px]">
+        <img src="/Walpaper/Frame 733.png" alt="">
+    </div>
+
+    <!-- Main Grid Section -->
+    <div id="main" class="w-[1170px] h-[988px] gap-[60px] ml-[90px] grid grid-cols-4 h-full">
+    </div>
+
+    <!-- Button and Icon Section -->
+    <div class="flex justify-center items-center mt-[20px] relative">
+        <button id="viewBtn"
+            class="w-[179px] h-[56px] rounded-[4px] gap-[10px] mt-[30px] bg-[#DB4444] text-[#FAFAFA] font-medium text-base">
+            View More
+        </button>
+        <i id="arrowUp"
+            class="fa-solid fa-arrow-up w-[24px] rounded-[30px] bg-[#F5F5F5] text-center absolute bottom-[15px] right-0"></i>
+    </div>
+
+    <!-- Cards Section -->
+    <div id="card" class="w-[1270px] h-[161px] grid grid-cols-3 place-items-center ml-[60px] mt-[100px] gap-[60px]">
+
+        <!-- Card 1: Free and Fast Delivery -->
+        <div class="flex flex-col relative items-center text-center">
+            <i
+                class="fas fa-truck w-[50px] h-[50px] bg-[#F5F5F5] rounded-[25px] text-center flex justify-center items-center text-3xl"></i>
+            <div class="mt-[10px]">
+                <p class="font-semibold text-xl">FREE AND FAST DELIVERY</p>
+                <p class="font-normal text-[#000000] text-xl">Free delivery for all orders over $140</p>
+            </div>
+        </div>
+
+        <!-- Card 2: 24/7 Customer Service -->
+        <div class="flex flex-col relative items-center text-center">
+            <i
+                class="fas fa-headset w-[50px] h-[50px] bg-[#F5F5F5] rounded-[25px] text-center flex justify-center items-center text-3xl"></i>
+            <div class="mt-[10px]">
+                <p class="font-semibold text-xl">24/7 CUSTOMER SERVICE</p>
+                <p class="font-normal text-[#000000] text-xl">Friendly 24/7 customer support</p>
+            </div>
+        </div>
+
+        <!-- Card 3: Money Back Guarantee -->
+        <div class="flex flex-col relative items-center text-center">
+            <i
+                class="fas fa-shield-alt w-[50px] h-[50px] bg-[#F5F5F5] rounded-[25px] text-center flex justify-center items-center text-3xl"></i>
+            <div class="mt-[10px]">
+                <p class="font-semibold text-xl">MONEY BACK GUARANTEE</p>
+                <p class="font-normal text-[#000000] text-xl">We return money within 30 days</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <footer class="w-[1349px] h-[390px] relative top-[100px] pt-[80px] pb-[24px] gap-0 opacity-100 bg-black text-white">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 px-4">
+
+            <div>
+                <h3 class="font-semibold text-lg mb-4">Exclusive</h3>
+                <p class="text-sm mb-2">Get 10% off your first order</p>
+                <div class="flex items-center border border-gray-400 rounded overflow-hidden">
+                    <input type="email" placeholder="Enter your email"
+                        class="px-4 py-2 text-black text-sm w-full focus:outline-none">
+                    <button class="bg-gray-700 px-4 py-2 text-white text-sm">➔</button>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="font-semibold text-lg mb-4">Support</h3>
+                <address class="not-italic text-sm mb-2">
+                    111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
+                </address>
+                <a href="mailto:exclusive@gmail.com" class="block text-sm mb-1 hover:underline">exclusive@gmail.com</a>
+                <a href="tel:+8801588889999" class="block text-sm hover:underline">+88015-88888-9999</a>
+            </div>
+
+            <div>
+                <h3 class="font-semibold text-lg mb-4">Account</h3>
+                <ul>
+                    <li><a href="#" class="text-sm mb-2 block hover:underline">My Account</a></li>
+                    <li><a href="#" class="text-sm mb-2 block hover:underline">Login / Register</a></li>
+                    <li><a href="#" class="text-sm block hover:underline">Basket</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-semibold text-lg mb-4">Quick Link</h3>
+                <ul>
+                    <li><a href="#" class="text-sm mb-2 block hover:underline">Privacy Policy</a></li>
+                    <li><a href="#" class="text-sm block hover:underline">Terms Of Use</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-semibold text-lg mb-4">Download App</h3>
+                <p class="text-sm mb-4">Save $3 with App New User Only</p>
+                <div class="flex gap-2 mb-4">
+                    <img src="Qr Code.png" alt="" class="w-[80px] h-[80px]">
+                    <div class="flex flex-col items-center gap-0 mb-4">
+                        <a href="#"><img src="GooglePlay.png" alt="Google Play" class="w-[110px] h-[40px]"></a>
+                        <a href="#"><img src="AppStore.png" alt="App Store" class="w-[110px] h-[40px]"></a>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <a href="#" class="text-lg"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-lg"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-lg"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-lg"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-sm text-gray-500 mt-8">
+            © Copyright Rimel 2022. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+
+</html>
